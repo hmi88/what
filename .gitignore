@@ -2,7 +2,8 @@
 WHAT_ref
 WHAT_exp
 WHAT_ppt
+.idea
+
 *.pyc
 *.xlm
-.idea
 
