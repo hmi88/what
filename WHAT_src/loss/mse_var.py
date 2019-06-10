@@ -10,9 +10,8 @@ class MSE_VAR(nn.Module):
     def forward(self, results, label):
         mean, var = results['mean'], results['var']
 
-        loss1 = (torch.exp(-var) * ((mean - label) ** 2)).mean()
+        loss1 = torch.mul(torch.exp(-var), ((mean - label) ** 2)).mean()
         loss2 = var.mean()
-
-        loss = loss1 + loss2
+        loss = .5 * (loss1 + loss2)
         return loss
 

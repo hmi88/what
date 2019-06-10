@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch.nn.functional as F
 
 from model import common
 
@@ -10,7 +11,6 @@ def make_model(args):
 class ALEATORIC(nn.Module):
     def __init__(self, config):
         super(ALEATORIC, self).__init__()
-        self.is_train = config.is_train
         in_channels = config.in_channels
         n_feats = config.n_feats
 

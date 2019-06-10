@@ -14,18 +14,17 @@ class Model(nn.Module):
         self.is_train = config.is_train
         self.num_gpu = config.num_gpu
         self.uncertainty = config.uncertainty
-        self.dropout = config.dropout
         self.n_samples = config.n_samples
         module = import_module('model.' + config.uncertainty)
         self.model = module.make_model(config).to(config.device)
 
     def forward(self, input):
-        if self.is_train:
+        if self.model.training:
             if self.num_gpu > 1:
                 return P.data_parallel(self.model, input,
                                        list(range(self.num_gpu)))
             else:
-                return self.model(input)
+                return self.model.forward(input)
         else:
             forward_func = self.model.forward
             if self.uncertainty=='aleatoric' or self.uncertainty=='normal':
@@ -40,7 +39,7 @@ class Model(nn.Module):
 
         mean = torch.stack(output, dim=0).mean(dim=0)
         var = torch.stack(output, dim=0).var(dim=0)
-        results = {'mean':mean, 'var':var}
+        results = {'mean': mean, 'var': var}
         return results
 
     def save(self, ckpt, epoch):

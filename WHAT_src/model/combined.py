@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch.nn.functional as F
 
 from model import common
 
@@ -10,7 +11,6 @@ def make_model(args):
 class COMBINED(nn.Module):
     def __init__(self, config):
         super(COMBINED, self).__init__()
-        self.is_train = config.is_train
         in_channels = config.in_channels
         n_feats = config.n_feats
 
@@ -34,12 +34,11 @@ class COMBINED(nn.Module):
         self.encoder = nn.Sequential(*encoder)
         self.decoder_mean = nn.Sequential(*decoder_mean)
         self.decoder_var = nn.Sequential(*decoder_var)
-        self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x):
         x_head = self.head(x)
         x_enc = self.encoder(x_head)
-        x_enc = self.dropout(x_enc)
+        x_enc = F.dropout(x_enc, training=True)
         x_mean = self.decoder_mean(x_enc)
         x_var = self.decoder_var(x_enc)
 

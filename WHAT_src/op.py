@@ -9,6 +9,7 @@ from util import make_optimizer, calc_psnr
 class Operator:
     def __init__(self, config, ckeck_point):
         self.config = config
+        self.epochs = config.epochs
         self.uncertainty = config.uncertainty
         self.ckpt = ckeck_point
         self.tensorboard = config.tensorboard
@@ -29,9 +30,8 @@ class Operator:
     def train(self, data_loader):
         last_epoch = self.ckpt.last_epoch
         train_batch_num = len(data_loader['train'])
-        self.model.train()
 
-        for epoch in range(last_epoch, self.config.epochs):
+        for epoch in range(last_epoch, self.epochs):
             for batch_idx, batch_data in enumerate(data_loader['train']):
                 batch_input, batch_label = batch_data
                 batch_input = batch_input.to(self.config.device)
@@ -61,33 +61,31 @@ class Operator:
                     self.summary_writer.add_images("train/mean_img",
                                                    batch_results['mean'],
                                                    current_global_step)
-
-            # save model
-            self.save(self.ckpt, epoch)
-            self.model.train()
-
             # use tensorboard
             if self.tensorboard:
                 print(self.optimizer.get_lr(), epoch)
                 self.summary_writer.add_scalar('epoch_lr',
                                                self.optimizer.get_lr(), epoch)
+            # save model
+            self.save(self.ckpt, epoch)
 
             # test model
             self.test(data_loader)
-
+            self.model.train()
 
         self.summary_writer.close()
 
     def test(self, data_loader):
         with torch.no_grad():
-            if self.uncertainty=='aleatoric' or self.uncertainty=='normal':
-                self.model.eval()
+            self.model.eval()
 
             total_psnr = 0.
             psnrs = []
             test_batch_num = len(data_loader['test'])
             for batch_idx, batch_data in enumerate(data_loader['test']):
                 batch_input, batch_label = batch_data
+                batch_input = batch_input.to(self.config.device)
+                batch_label = batch_label.to(self.config.device)
 
                 # forward
                 batch_results = self.model(batch_input, )
@@ -106,7 +104,7 @@ class Operator:
                                                batch_input, self.ckpt.last_epoch)
                 self.summary_writer.add_images("test/mean_img",
                                                batch_results['mean'], self.ckpt.last_epoch)
-                if not self.uncertainty=='normal':
+                if not self.uncertainty == 'normal':
                     self.summary_writer.add_images("test/var_img",
                                                    torch.sigmoid(batch_results['var']),
                                                    self.ckpt.last_epoch)
@@ -115,7 +113,6 @@ class Operator:
         ckpt.load() # load ckpt
         self.model.load(ckpt) # load model
         self.optimizer.load(ckpt) # load optimizer
-
 
     def save(self, ckpt, epoch):
         ckpt.save(epoch) # save ckpt: global_step, last_epoch

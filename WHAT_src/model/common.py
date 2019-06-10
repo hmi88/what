@@ -22,7 +22,7 @@ class default_conv(nn.Module):
 
 
 class double_conv(nn.Module):
-    '''(conv => BN => ReLU) * 2'''
+    '''(conv => ReLU) * 2'''
     def __init__(self, in_ch, out_ch):
         super(double_conv, self).__init__()
         self.conv = nn.Sequential(
@@ -31,8 +31,7 @@ class double_conv(nn.Module):
             nn.ReLU(inplace=True),
             nn.Conv2d(out_ch, out_ch, 3, padding=1),
             nn.BatchNorm2d(out_ch),
-            nn.ReLU(inplace=True)
-        )
+            nn.ReLU(inplace=True))
 
     def forward(self, x):
         x = self.conv(x)
@@ -44,8 +43,7 @@ class down(nn.Module):
         super(down, self).__init__()
         self.down_conv = nn.Sequential(
             nn.MaxPool2d(2),
-            double_conv(in_ch, out_ch)
-        )
+            double_conv(in_ch, out_ch))
 
     def forward(self, x):
         x = self.down_conv(x)
@@ -57,8 +55,7 @@ class up(nn.Module):
         super(up, self).__init__()
         self.up_conv = nn.Sequential(
             nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True),
-            double_conv(in_ch, out_ch)
-        )
+            double_conv(in_ch, out_ch))
 
     def forward(self, x):
         x = self.up_conv(x)

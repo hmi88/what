@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch.nn.functional as F
 
 from model import common
 
@@ -10,7 +11,6 @@ def make_model(args):
 class EPISTEMIC(nn.Module):
     def __init__(self, config):
         super(EPISTEMIC, self).__init__()
-        self.is_train = config.is_train
         in_channels = config.in_channels
         n_feats = config.n_feats
 
@@ -28,12 +28,11 @@ class EPISTEMIC(nn.Module):
         self.head = nn.Sequential(*head)
         self.encoder = nn.Sequential(*encoder)
         self.decoder = nn.Sequential(*decoder)
-        self.dropout = nn.Dropout(p=0.5)
 
     def forward(self, x, dropout=0.5):
         x_head = self.head(x)
         x_enc = self.encoder(x_head)
-        x_enc = self.dropout(x_enc)
+        x_enc = F.dropout(x_enc, training=True)
         x_mean = self.decoder(x_enc)
 
         results = {'mean': x_mean}

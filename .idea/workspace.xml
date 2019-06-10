@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c5b2da2-4b6e-4a29-880a-150751b3e94d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/log/ckpt.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/model/model_0.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/model/model_latest.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/model/optimizer.pt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WHAT_src/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/loss/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/loss/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_src/loss/mse_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/loss/mse_var.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WHAT_src/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_src/model/aleatoric.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/aleatoric.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_src/model/combined.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/combined.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_src/model/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_src/model/epistemic.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/epistemic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WHAT_src/model/normal.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/normal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WHAT_src/op.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/op.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,16 +24,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.28603923">
+    <splitter split-orientation="horizontal" split-proportion="0.26556724">
       <split-first>
-        <splitter split-orientation="vertical" split-proportion="0.5">
+        <splitter split-orientation="vertical" split-proportion="0.48940465">
           <split-first>
             <leaf>
-              <file pinned="false" current-in-tab="false">
+              <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/WHAT_src/main.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="209">
-                      <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+                    <state relative-caret-position="152">
+                      <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
                       <folding>
                         <element signature="e#0#12#0" expanded="true" />
                       </folding>
@@ -32,7 +41,7 @@
                   </provider>
                 </entry>
               </file>
-              <file pinned="false" current-in-tab="true">
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/WHAT_src/data.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="247">
@@ -48,8 +57,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/WHAT_src/config.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="532">
-                      <caret line="28" column="29" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
+                    <state relative-caret-position="555">
+                      <caret line="30" column="58" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
                       <folding>
                         <element signature="e#0#15#0" expanded="true" />
                       </folding>
@@ -62,46 +71,137 @@
         </splitter>
       </split-first>
       <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/WHAT_src/op.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="434">
-                  <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#0#18#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/WHAT_src/loss/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="494">
-                  <caret line="26" column="54" lean-forward="true" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-                  <folding>
-                    <element signature="e#0#12#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/WHAT_src/model/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="247">
-                  <caret line="13" selection-start-line="13" selection-end-line="13" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
+        <splitter split-orientation="horizontal" split-proportion="0.41966707">
+          <split-first>
+            <leaf>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/loss/mse_var.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state>
+                      <folding>
+                        <element signature="e#0#12#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/torch/nn/modules/module.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="405">
+                      <caret line="493" selection-start-line="493" selection-end-line="493" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/op.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="765">
+                      <caret line="80" selection-start-line="80" selection-end-line="80" />
+                      <folding>
+                        <element signature="e#0#18#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/model/__init__.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="399">
+                      <caret line="21" selection-start-line="21" selection-end-line="21" />
+                      <folding>
+                        <element signature="e#0#9#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/loss/mse.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="247">
+                      <caret line="13" selection-start-line="13" selection-end-line="13" />
+                      <folding>
+                        <element signature="e#0#12#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/model/common.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="570">
+                      <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/model/normal.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="247">
+                      <caret line="13" selection-start-line="13" selection-end-line="13" />
+                      <folding>
+                        <element signature="e#0#21#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/model/aleatoric.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="247">
+                      <caret line="13" selection-start-line="13" selection-end-line="13" />
+                      <folding>
+                        <element signature="e#0#21#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/model/epistemic.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="247">
+                      <caret line="13" selection-start-line="13" selection-end-line="13" />
+                      <folding>
+                        <element signature="e#0#21#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/WHAT_src/model/combined.py">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="247">
+                      <caret line="13" selection-start-line="13" selection-end-line="13" />
+                      <folding>
+                        <element signature="e#0#21#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
       </split-second>
     </splitter>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>self.dropout</find>
+      <find>is_train</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -109,12 +209,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/WHAT_src/config.py" />
-        <option value="$PROJECT_DIR$/WHAT_src/main.py" />
         <option value="$PROJECT_DIR$/WHAT_src/loss/__init__.py" />
-        <option value="$PROJECT_DIR$/WHAT_src/model/__init__.py" />
         <option value="$PROJECT_DIR$/WHAT_src/data.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/loss/mse_var.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/config.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/loss/mse.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/model/__init__.py" />
         <option value="$PROJECT_DIR$/WHAT_src/op.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/model/common.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/main.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/model/normal.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/model/aleatoric.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/model/epistemic.py" />
+        <option value="$PROJECT_DIR$/WHAT_src/model/combined.py" />
       </list>
     </option>
   </component>
@@ -128,7 +235,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="269" />
     <option name="y" value="28" />
     <option name="width" value="2882" />
@@ -183,7 +290,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true">
       <module name="WHAT" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -250,25 +357,25 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/WHAT_src/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/WHAT_src/op.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/WHAT_src/op.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="4" />
+          <line>72</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>self.model.train()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.model.training</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>self.config.epochs</expression-string>
         <language-id>Python</language-id>
@@ -289,40 +396,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WHAT_src/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="29" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WHAT_src/loss/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
-          <caret line="26" column="54" lean-forward="true" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WHAT_src/model/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WHAT_src/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -343,12 +420,136 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2019.1/system/python_stubs/1434209399/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="4206" column="8" selection-start-line="4206" selection-start-column="8" selection-end-line="4206" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/torch/nn/modules/dropout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="57" column="22" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/torch/nn/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2399">
+          <caret line="827" column="19" selection-start-line="827" selection-start-column="19" selection-end-line="827" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="30" column="58" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/model/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/loss/mse_var.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.7/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="493" selection-start-line="493" selection-end-line="493" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/model/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/loss/mse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WHAT_src/op.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        <state relative-caret-position="765">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/model/normal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/model/aleatoric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/model/epistemic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/model/combined.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
