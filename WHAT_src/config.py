@@ -12,7 +12,7 @@ parser.add_argument("--exp_dir", type=str, default="../WHAT_exp")
 parser.add_argument("--tensorboard", action='store_true', help='use tensorboard')
 
 # Data
-parser.add_argument("--data_dir", type=str, default="~/Data")
+parser.add_argument("--data_dir", type=str, default="/mnt/sda")
 parser.add_argument("--data_name", type=str, default="mnist")
 parser.add_argument('--batch_size', type=int, default=32)
 parser.add_argument('--rgb_range', type=int, default=1)

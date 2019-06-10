@@ -7,18 +7,17 @@ import torch.nn.parallel as P
 
 
 class Model(nn.Module):
-    def __init__(self, config, device):
+    def __init__(self, config):
         super(Model, self).__init__()
         print('Making model...')
 
-        self.device = device
         self.is_train = config.is_train
         self.num_gpu = config.num_gpu
         self.uncertainty = config.uncertainty
         self.dropout = config.dropout
         self.n_samples = config.n_samples
         module = import_module('model.' + config.uncertainty)
-        self.model = module.make_model(config).to(device)
+        self.model = module.make_model(config).to(config.device)
 
     def forward(self, input):
         if self.is_train:

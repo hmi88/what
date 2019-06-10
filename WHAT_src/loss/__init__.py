@@ -4,7 +4,7 @@ from importlib import import_module
 
 
 class Loss(nn.Module):
-    def __init__(self, config, device):
+    def __init__(self, config):
         super(Loss, self).__init__()
         print('Preparing loss function...')
 
@@ -21,7 +21,7 @@ class Loss(nn.Module):
 
         self.losses.append({'function': loss_function})
 
-        self.loss_module.to(device)
+        self.loss_module.to(config.device)
         if not config.cpu and config.num_gpu > 1:
             self.loss_module = nn.DataParallel(
                 self.loss_module, range(self.num_gpu))

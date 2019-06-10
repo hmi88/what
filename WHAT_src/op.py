@@ -7,8 +7,7 @@ from util import make_optimizer, calc_psnr
 
 
 class Operator:
-    def __init__(self, config, ckeck_point, device):
-        self.device = device
+    def __init__(self, config, ckeck_point):
         self.config = config
         self.uncertainty = config.uncertainty
         self.ckpt = ckeck_point
@@ -17,8 +16,8 @@ class Operator:
             self.summary_writer = SummaryWriter(self.ckpt.log_dir, 300)
 
         # set model, criterion, optimizer
-        self.model = Model(config, device)
-        self.criterion = Loss(config, device)
+        self.model = Model(config)
+        self.criterion = Loss(config)
         self.optimizer = make_optimizer(config, self.model)
 
         # load ckpt, model, optimizer
@@ -34,7 +33,9 @@ class Operator:
 
         for epoch in range(last_epoch, self.config.epochs):
             for batch_idx, batch_data in enumerate(data_loader['train']):
-                batch_input, batch_label = batch_data.to(self.config.device)
+                batch_input, batch_label = batch_data
+                batch_input = batch_input.to(self.config.device)
+                batch_label = batch_label.to(self.config.device)
 
                 # forward
                 batch_results = self.model(batch_input)

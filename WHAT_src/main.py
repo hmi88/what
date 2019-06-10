@@ -6,12 +6,12 @@ from op import Operator
 from util import Checkpoint
 
 def main(config):
-    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    config.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     # load data_loader
     data_loader = get_dataloader(config)
     check_point = Checkpoint(config)
-    operator = Operator(config, check_point, device)
+    operator = Operator(config, check_point)
 
     if config.is_train:
         operator.train(data_loader)
