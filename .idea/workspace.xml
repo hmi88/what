@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c5b2da2-4b6e-4a29-880a-150751b3e94d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/log/ckpt.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/model/model_0.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/model/model_latest.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_exp/normal/model/optimizer.pt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/loss/mse_var.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/loss/mse_var.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/model/aleatoric.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/aleatoric.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/model/combined.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/combined.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/model/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/model/epistemic.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/epistemic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/model/normal.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/model/normal.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WHAT_src/op.py" beforeDir="false" afterPath="$PROJECT_DIR$/WHAT_src/op.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +85,7 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/WHAT_src/op.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="765">
+                    <state relative-caret-position="993">
                       <caret line="80" selection-start-line="80" selection-end-line="80" />
                       <folding>
                         <element signature="e#0#18#0" expanded="true" />
@@ -180,6 +168,15 @@
                 </entry>
               </file>
               <file pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/.gitignore">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="152">
+                      <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file pinned="false" current-in-tab="false">
                 <entry file="file://$PROJECT_DIR$/WHAT_src/model/combined.py">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="247">
@@ -222,6 +219,7 @@
         <option value="$PROJECT_DIR$/WHAT_src/model/aleatoric.py" />
         <option value="$PROJECT_DIR$/WHAT_src/model/epistemic.py" />
         <option value="$PROJECT_DIR$/WHAT_src/model/combined.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -339,11 +337,11 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" weight="0.32996973" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.32996973" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32996973" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32996973" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39959636" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -496,7 +494,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WHAT_src/op.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
+        <state relative-caret-position="993">
           <caret line="80" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -534,6 +532,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WHAT_src/model/combined.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WHAT_src/model/epistemic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -544,13 +552,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WHAT_src/model/combined.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
