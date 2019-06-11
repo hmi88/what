@@ -8,6 +8,7 @@ parser.add_argument("--is_train", type=strtobool, default='true')
 parser.add_argument("--tensorboard", type=strtobool, default='true')
 parser.add_argument("--is_resume", action='store_true', help='resume')
 parser.add_argument('--cpu', action='store_true', help='use cpu only')
+parser.add_argument('--gpu', type=int, default=1)
 parser.add_argument("--num_gpu", type=int, default=1)
 parser.add_argument("--exp_dir", type=str, default="../WHAT_exp")
 

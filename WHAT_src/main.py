@@ -6,7 +6,8 @@ from op import Operator
 from util import Checkpoint
 
 def main(config):
-    config.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    config.device = torch.device('cuda:{}'.format(config.gpu)
+                                 if torch.cuda.is_available() else 'cpu')
 
     # load data_loader
     data_loader = get_dataloader(config)

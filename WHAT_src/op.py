@@ -105,9 +105,9 @@ class Operator:
                 self.summary_writer.add_images("test/mean_img",
                                                batch_results['mean'], self.ckpt.last_epoch)
                 if not self.uncertainty == 'normal':
+                    var_norm = batch_results['var'] / batch_results['var'].max()
                     self.summary_writer.add_images("test/var_img",
-                                                   torch.sigmoid(batch_results['var']),
-                                                   self.ckpt.last_epoch)
+                                                   var_norm, self.ckpt.last_epoch)
 
     def load(self, ckpt):
         ckpt.load() # load ckpt
