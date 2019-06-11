@@ -100,6 +100,7 @@ def make_optimizer(config, model):
     optimizer._register_scheduler(scheduler_class, **kwargs_scheduler)
     return optimizer
 
+
 def summary(model, file=sys.stdout):
     def repr(model):
         # We treat the extra repr like the sub-module, one item per line

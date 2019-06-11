@@ -88,7 +88,7 @@ class Operator:
                 batch_label = batch_label.to(self.config.device)
 
                 # forward
-                batch_results = self.model(batch_input, )
+                batch_results = self.model(batch_input)
                 current_psnr = calc_psnr(batch_results['mean'], batch_input)
                 psnrs.append(current_psnr)
                 total_psnr = sum(psnrs) / len(psnrs)
@@ -105,7 +105,10 @@ class Operator:
                 self.summary_writer.add_images("test/mean_img",
                                                batch_results['mean'], self.ckpt.last_epoch)
                 if not self.uncertainty == 'normal':
-                    var_norm = batch_results['var'] / batch_results['var'].max()
+                    var = batch_results['var']
+                    if self.uncertainty == 'aleatoric':
+                        var = torch.sigmoid(var)
+                    var_norm = var / var.max()
                     self.summary_writer.add_images("test/var_img",
                                                    var_norm, self.ckpt.last_epoch)
 
@@ -115,9 +118,9 @@ class Operator:
         self.optimizer.load(ckpt) # load optimizer
 
     def save(self, ckpt, epoch):
+        self.optimizer.schedule()
         ckpt.save(epoch) # save ckpt: global_step, last_epoch
         self.model.save(ckpt, epoch) # save model: weight
         self.optimizer.save(ckpt) # save optimizer:
-
 
 
