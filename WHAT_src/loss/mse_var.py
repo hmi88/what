@@ -4,16 +4,15 @@ import torch.nn.functional as F
 
 
 class MSE_VAR(nn.Module):
-    def __init__(self):
+    def __init__(self, var_weight):
         super(MSE_VAR, self).__init__()
-
+        self.var_weight = var_weight
     def forward(self, results, label):
         mean, var = results['mean'], results['var']
+        var = self.var_weight * var
 
-        loss1 = torch.mul(torch.exp(-var).mean(), ((mean - label) ** 2).mean())
-        loss2 = var.mean()
+        loss1 = torch.mul(torch.exp(-var), (mean - label) ** 2)
+        loss2 = var
         loss = .5 * (loss1 + loss2)
-        print("----------------------------------------------------------", torch.exp(-var).mean().item(),
-              ((mean - label) ** 2).mean().item(), loss1.item(), loss2.item())
-        return loss
+        return loss.mean()
 

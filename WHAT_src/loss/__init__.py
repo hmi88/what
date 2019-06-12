@@ -17,7 +17,8 @@ class Loss(nn.Module):
             loss_function = getattr(module, 'MSE')()
         else:
             module = import_module('loss.mse_var')
-            loss_function = getattr(module, 'MSE_VAR')()
+            loss_function = getattr(module, 'MSE_VAR')(
+                var_weight=config.var_weight)
 
         self.losses.append({'function': loss_function})
 

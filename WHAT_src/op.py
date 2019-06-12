@@ -3,7 +3,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 from model import *
 from loss import Loss
-from util import make_optimizer, calc_psnr
+from util import make_optimizer, calc_psnr, summary
 
 
 class Operator:
@@ -18,8 +18,13 @@ class Operator:
 
         # set model, criterion, optimizer
         self.model = Model(config)
+        summary(self.model, config_file=self.ckpt.config_file)
+
+        # set criterion, optimizer
         self.criterion = Loss(config)
         self.optimizer = make_optimizer(config, self.model)
+
+        # summary
 
         # load ckpt, model, optimizer
         if config.is_resume or not config.is_train:

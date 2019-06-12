@@ -1,6 +1,7 @@
 import os
 import math
 import sys
+from datetime import datetime
 from functools import reduce
 
 import torch
@@ -16,13 +17,21 @@ class Checkpoint:
         self.config = config
         self.exp_dir = config.exp_dir
         exp_type = config.uncertainty
+        now = datetime.now().strftime('%m%d_%H%M')
+        dir_fmt = '{}_{}'.format(exp_type, now, config)
 
-        self.model_dir = os.path.join(self.exp_dir, exp_type, 'model')
-        self.log_dir = os.path.join(self.exp_dir, exp_type, 'log')
+        self.model_dir = os.path.join(self.exp_dir, dir_fmt, 'model')
+        self.log_dir = os.path.join(self.exp_dir, dir_fmt, 'log')
         self.ckpt_dir = os.path.join(self.log_dir, 'ckpt.pt')
 
         os.makedirs(self.model_dir, exist_ok=True)
         os.makedirs(self.log_dir, exist_ok=True)
+
+        # save config
+        self.config_file = os.path.join(self.log_dir, 'config.txt')
+        with open(self.config_file, 'w') as f:
+            for k, v in vars(config).items():
+                f.writelines('{}: {} \n'.format(k, v))
 
     def step(self):
         self.global_step += 1
@@ -101,7 +110,7 @@ def make_optimizer(config, model):
     return optimizer
 
 
-def summary(model, file=sys.stdout):
+def summary(model, config_file, file=sys.stdout):
     def repr(model):
         # We treat the extra repr like the sub-module, one item per line
         extra_lines = []
@@ -138,10 +147,11 @@ def summary(model, file=sys.stdout):
         return main_str, total_params
 
     string, count = repr(model)
+    print(string, file=open(config_file, 'a'))
+
     if file is not None:
-        if isinstance(file, str):
-            file = open(file, 'w')
-        print(string, file=file)
+        print(string, file=sys.stdout)
         file.flush()
 
     return count
+
