@@ -16,9 +16,14 @@ class Checkpoint:
         self.last_epoch = 0
         self.config = config
         self.exp_dir = config.exp_dir
+        self.exp_load = config.exp_load
         exp_type = config.uncertainty
         now = datetime.now().strftime('%m%d_%H%M')
-        dir_fmt = '{}_{}'.format(exp_type, now, config)
+
+        if config.exp_load is None:
+            dir_fmt = '{}_{}'.format(exp_type, now, config)
+        else:
+            dir_fmt = '{}_{}'.format(exp_type, self.exp_load, config)
 
         self.model_dir = os.path.join(self.exp_dir, dir_fmt, 'model')
         self.log_dir = os.path.join(self.exp_dir, dir_fmt, 'log')

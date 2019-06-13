@@ -7,12 +7,12 @@ parser = argparse.ArgumentParser()
 # Environment
 parser.add_argument("--is_train", type=strtobool, default='true')
 parser.add_argument("--tensorboard", type=strtobool, default='true')
-parser.add_argument("--is_resume", action='store_true', help='resume')
 parser.add_argument('--cpu', action='store_true', help='use cpu only')
 parser.add_argument('--gpu', type=int, default=0)
 parser.add_argument("--num_gpu", type=int, default=1)
 parser.add_argument("--exp_dir", type=str, default="../WHAT_exp")
-parser.add_argument("--exp_exp", type=str, default="")
+parser.add_argument("--exp_load", type=str, default=None)
+parser.add_argument("--scale", type=int, default=4)
 
 # Data
 parser.add_argument("--data_dir", type=str, default="/mnt/sda")
@@ -25,7 +25,7 @@ parser.add_argument('--uncertainty', default='aleatoric',
                     choices=('normal', 'epistemic', 'aleatoric', 'combined'))
 parser.add_argument('--in_channels', type=int, default=1)
 parser.add_argument('--n_feats', type=int, default=32)
-parser.add_argument('--var_weight', type=float, default=1e-4)
+parser.add_argument('--var_weight', type=float, default=1.)
 
 # Train
 parser.add_argument("--epochs", type=int, default=200)

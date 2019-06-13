@@ -24,10 +24,8 @@ class Operator:
         self.criterion = Loss(config)
         self.optimizer = make_optimizer(config, self.model)
 
-        # summary
-
         # load ckpt, model, optimizer
-        if config.is_resume or not config.is_train:
+        if self.ckpt.exp_load is not None or not config.is_train:
             print("Loading model... ")
             self.load(self.ckpt)
             print(self.ckpt.last_epoch, self.ckpt.global_step)
@@ -66,6 +64,11 @@ class Operator:
                     self.summary_writer.add_images("train/mean_img",
                                                    batch_results['mean'],
                                                    current_global_step)
+                    if self.uncertainty == 'aleatoric' or self.uncertainty == 'combined':
+                        self.summary_writer.add_images("train/var_img",
+                                                       torch.exp(batch_results['var']),
+                                                       current_global_step)
+
             # use tensorboard
             if self.tensorboard:
                 print(self.optimizer.get_lr(), epoch)
@@ -112,10 +115,9 @@ class Operator:
                 if not self.uncertainty == 'normal':
                     var = batch_results['var']
                     if self.uncertainty == 'aleatoric':
-                        var = torch.sigmoid(var)
-                    var_norm = var / var.max()
+                        var = torch.exp(var)
                     self.summary_writer.add_images("test/var_img",
-                                                   var_norm, self.ckpt.last_epoch)
+                                                   var, self.ckpt.last_epoch)
 
     def load(self, ckpt):
         ckpt.load() # load ckpt
