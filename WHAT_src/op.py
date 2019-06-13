@@ -74,10 +74,10 @@ class Operator:
                 print(self.optimizer.get_lr(), epoch)
                 self.summary_writer.add_scalar('epoch_lr',
                                                self.optimizer.get_lr(), epoch)
-            # save model
-            self.save(self.ckpt, epoch)
 
-            # test model
+            # test model & save model
+            self.optimizer.schedule()
+            self.save(self.ckpt, epoch)
             self.test(data_loader)
             self.model.train()
 

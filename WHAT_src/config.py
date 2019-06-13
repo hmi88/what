@@ -12,7 +12,6 @@ parser.add_argument('--gpu', type=int, default=0)
 parser.add_argument("--num_gpu", type=int, default=1)
 parser.add_argument("--exp_dir", type=str, default="../WHAT_exp")
 parser.add_argument("--exp_load", type=str, default=None)
-parser.add_argument("--scale", type=int, default=4)
 
 # Data
 parser.add_argument("--data_dir", type=str, default="/mnt/sda")

@@ -89,7 +89,7 @@ class _Encoder(nn.Module):
                        nn.BatchNorm2d(n_out_feat),
                        nn.ReLU()]
             if n_blocks == 2:
-                layers += [nn.Dropout(drop_rate, True)]
+                layers += [nn.Dropout(drop_rate)]
 
         self.features = nn.Sequential(*layers)
 
@@ -120,7 +120,7 @@ class _Decoder(nn.Module):
                        nn.BatchNorm2d(n_out_feat),
                        nn.ReLU()]
             if n_blocks == 2:
-                layers += [nn.Dropout(drop_rate, True)]
+                layers += [nn.Dropout(drop_rate)]
 
         self.features = nn.Sequential(*layers)
 
