@@ -10,6 +10,7 @@ parser.add_argument("--tensorboard", type=strtobool, default='true')
 parser.add_argument('--cpu', action='store_true', help='use cpu only')
 parser.add_argument('--gpu', type=int, default=0)
 parser.add_argument("--num_gpu", type=int, default=1)
+parser.add_argument("--num_work", type=int, default=8)
 parser.add_argument("--exp_dir", type=str, default="../WHAT_exp")
 parser.add_argument("--exp_load", type=str, default=None)
 
@@ -20,7 +21,7 @@ parser.add_argument('--batch_size', type=int, default=32)
 parser.add_argument('--rgb_range', type=int, default=1)
 
 # Model
-parser.add_argument('--uncertainty', default='aleatoric',
+parser.add_argument('--uncertainty', default='normal',
                     choices=('normal', 'epistemic', 'aleatoric', 'combined'))
 parser.add_argument('--in_channels', type=int, default=1)
 parser.add_argument('--n_feats', type=int, default=32)
