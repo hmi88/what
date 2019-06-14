@@ -2,12 +2,6 @@
 
 Pytorch implementation of ["What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision?", NIPS 2017](https://arxiv.org/abs/1703.04977) 
 
-[[Image]]
-
-[[paper 3line summary]]
-
-[[Notice]]
-
 
 
 ## 1. Usage
@@ -36,7 +30,7 @@ WHAT
 
 ```
 # L2 loss only 
-python train.py --uncertainty "normal"
+python train.py --uncertainty "normal" --drop_rate 0.
 
 # Epistemic / Aleatoric 
 python train.py --uncertainty ["epistemic", "aleatoric"]
@@ -75,15 +69,17 @@ python train.py --is_train false --uncertainty "combined" --n_samples 25 [or 5, 
 
 ## 2. Experiment
 
-### 2.1 Dataset
+### 2.1 Dataset & Network
 
-fashion-mnist
-
-
-
-### 2.2 Loss
+- Fahsion MNIST 
+- Segnet (Depth 2)
 
 
 
 ### 2.2 Results
 
+#### 2.2.1 Loss
+
+#### 2.2.2 PSNR
+
+#### 2.2.3 Images
