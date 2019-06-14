@@ -69,17 +69,27 @@ python train.py --is_train false --uncertainty "combined" --n_samples 25 [or 5, 
 
 ## 2. Experiment
 
-### 2.1 Dataset & Network
+### 2.1 Network & Datset
 
-- Fahsion MNIST 
-- Segnet (Depth 2)
+- Autoencoder based on [Bayesian Segnet](https://arxiv.org/abs/1511.02680)
 
+  - Network depth 2 (paper 5)
+  - Drop_rate 0.2 (paper 0.5)
 
+- Fahsion MNIST / MNIST
+
+  - Input = Label (for autoencoder)
+
+    
 
 ### 2.2 Results
+
+This is not official implementation
 
 #### 2.2.1 Loss
 
 #### 2.2.2 PSNR
+
+Combined > Aleatoric > Normal-drop0.0 > Epistemic > Normal-drop0.2
 
 #### 2.2.3 Images
