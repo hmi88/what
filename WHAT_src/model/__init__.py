@@ -65,19 +65,20 @@ class Model(nn.Module):
         mean1s = []
         mean2s = []
         var1s = []
+
         for i_sample in range(self.n_samples):
             results = forward_func(input)
             mean1 = results['mean']
-            var1 = results['var']
             mean1s.append(mean1 ** 2)
             mean2s.append(mean1)
+            var1 = results['var']
             var1s.append(torch.exp(var1))
 
         mean1s_ = torch.stack(mean1s, dim=0).mean(dim=0)
         mean2s_ = torch.stack(mean2s, dim=0).mean(dim=0)
-        var1s_ = torch.stack(var1s, dim=0).mean(dim=0)
 
-        var2 = mean1s_ - mean2s_**2
+        var1s_ = torch.stack(var1s, dim=0).mean(dim=0)
+        var2 = mean1s_ - mean2s_ ** 2
         var_ = var1s_ + var2
         var_norm = var_ / var_.max()
         results = {'mean': mean2s_, 'var': var_norm}

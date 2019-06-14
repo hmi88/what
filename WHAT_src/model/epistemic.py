@@ -46,14 +46,16 @@ class EPISTEMIC(nn.Module):
         # encoder path, keep track of pooling indices and features size
         for i in range(0, 2):
             (feat, ind), size = self.encoders[i](feat)
-            feat = F.dropout(feat, p=self.drop_rate, training=True)
+            if i == 1:
+                feat = F.dropout(feat, p=self.drop_rate, training=True)
             indices.append(ind)
             unpool_sizes.append(size)
 
         # decoder path, upsampling with corresponding indices and size
         for i in range(0, 2):
             feat = self.decoders[i](feat, indices[1 - i], unpool_sizes[1 - i])
-            feat = F.dropout(feat, p=self.drop_rate, training=True)
+            if i == 0:
+                feat = F.dropout(feat, p=self.drop_rate, training=True)
 
         output = self.classifier(feat)
         results = {'mean': output}

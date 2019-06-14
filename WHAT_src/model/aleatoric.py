@@ -53,7 +53,8 @@ class ALEATORIC(nn.Module):
         # encoder path, keep track of pooling indices and features size
         for i in range(0, 2):
             (feat, ind), size = self.encoders[i](feat)
-            feat = F.dropout(feat, p=self.drop_rate)
+            if i == 1:
+                feat = F.dropout(feat, p=self.drop_rate)
             indices.append(ind)
             unpool_sizes.append(size)
 
@@ -62,9 +63,10 @@ class ALEATORIC(nn.Module):
         # decoder path, upsampling with corresponding indices and size
         for i in range(0, 2):
             feat_mean = self.decoders_mean[i](feat_mean, indices[1 - i], unpool_sizes[1 - i])
-            feat_mean = F.dropout(feat_mean, p=self.drop_rate)
             feat_var = self.decoders_var[i](feat_var, indices[1 - i], unpool_sizes[1 - i])
-            feat_var = F.dropout(feat_var, p=self.drop_rate)
+            if i == 0:
+                feat_mean = F.dropout(feat_mean, p=self.drop_rate)
+                feat_var = F.dropout(feat_var, p=self.drop_rate)
 
         output_mean = self.classifier_mean(feat_mean)
         output_var = self.classifier_var(feat_var)
