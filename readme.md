@@ -10,97 +10,80 @@ Pytorch implementation of ["What Uncertainties Do We Need in Bayesian Deep Learn
 
 
 
-## 0. Requirments 123456
-
-
-
-
-
 ## 1. Usage
+
+```
+# Data Tree
+config.data_dir/
+└── config.data_name/
+
+# Project Tree
+WHAT
+├── WHAT_src/
+│       ├── data/ *.py
+│       ├── loss/ *.py
+│       ├── model/ *.py
+│       └── *.py
+└── WHAT_exp/
+         ├── log/
+         ├── model/
+         └── save/         
+```
+
+
 
 ### 1.1  Train
 
 ```
+# L2 loss only 
+python train.py --uncertainty "normal"
 
+# Epistemic / Aleatoric 
+python train.py --uncertainty ["epistemic", "aleatoric"]
+
+# Epistemic + Aleatoric
+python train.py --uncertainty "combined"
 ```
 
 
 
 ### 1.2 Test
 
+```
+# L2 loss only 
+python train.py --is_train false --uncertainty "normal"
+
+# Epistemic
+python train.py --is_train false --uncertainty "epistemic" --n_samples 25 [or 5, 50]
+
+# Aleatoric
+python train.py --is_train false --uncertainty "aleatoric" 
+
+# Epistemic + Aleatoric
+python train.py --is_train false --uncertainty "combined" --n_samples 25 [or 5, 50]
+```
+
+
+
 ### 1.3 Requirements
 
-- Pytorch
-- 
+- Pytorch >= 1.0
+- Torchvision
+- distutils
 
 
 
-## 2. Implmentation detail
+## 2. Experiment
 
 ### 2.1 Dataset
 
-### 2.2 Architecture
-
-### 2.3 Loss
-
-**2.3.1 Epistemic Uncertainty**
-
-```python
-def epistemic_loss():
-  return
-```
+fashion-mnist
 
 
 
-**2.3.2 Heteroscedastic Aleatoric Uncertainty**
-
-```python
-def aleatoric_loss():
-    return	
-```
+### 2.2 Loss
 
 
 
-**2.3.3 Combining Aleatoric and Epistemic Uncertainty***
-
-```python
-def combine_loss():
-	return
-```
-
-
-
-## 3. Experiment
-
-### 3.1 Results
-
-
-
-### 3.2 uncertainty effect
-
-|      | L2 only | L2 + Epistemic | L2 + Aleatoric | L2 + Epistemic |
-| ---- | ------- | -------------- | -------------- | -------------- |
-| rmse |         |                |                |                |
-| pil  |         |                |                |                |
-| Cicl |         |                |                |                |
-
-
-
-### 3.3 data crosscheck
-
-| Train     | Test    | rms  | ep_var | al-var |
-| --------- | ------- | ---- | ------ | ------ |
-| MNIST / 4 | MNIST   |      |        |        |
-| MNIST     | MNIST   |      |        |        |
-| MNIST     | Fashion |      |        |        |
-
-
-
-## 4. Reference
-
-
-
-## 5. Author
-
-Kiheum Cho 
+### 2.2 Results
 
