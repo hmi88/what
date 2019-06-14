@@ -11,6 +11,7 @@ def make_model(args):
 class EPISTEMIC(nn.Module):
     def __init__(self, config):
         super(EPISTEMIC, self).__init__()
+        self.drop_rate = config.drop_rate
         in_channels = config.in_channels
         filter_config = (64, 128)
 
@@ -27,12 +28,14 @@ class EPISTEMIC(nn.Module):
             # encoder architecture
             self.encoders.append(_Encoder(encoder_filter_config[i],
                                           encoder_filter_config[i + 1],
-                                          encoder_n_layers[i]))
+                                          encoder_n_layers[i],
+                                          drop_rate=self.drop_rate))
 
             # decoder architecture
             self.decoders.append(_Decoder(decoder_filter_config[i],
                                           decoder_filter_config[i + 1],
-                                          decoder_n_layers[i]))
+                                          decoder_n_layers[i],
+                                          drop_rate=self.drop_rate))
 
         # final classifier (equivalent to a fully connected layer)
         self.classifier = nn.Conv2d(filter_config[0], in_channels, 3, 1, 1)

@@ -62,12 +62,8 @@ class Operator:
                                                    batch_input,
                                                    current_global_step)
                     self.summary_writer.add_images("train/mean_img",
-                                                   batch_results['mean'],
+                                                   torch.clamp(batch_results['mean'], 0., 1.),
                                                    current_global_step)
-                    if self.uncertainty == 'aleatoric' or self.uncertainty == 'combined':
-                        self.summary_writer.add_images("train/var_img",
-                                                       torch.exp(batch_results['var']),
-                                                       current_global_step)
 
             # use tensorboard
             if self.tensorboard:
@@ -111,13 +107,12 @@ class Operator:
                 self.summary_writer.add_images("test/input_img",
                                                batch_input, self.ckpt.last_epoch)
                 self.summary_writer.add_images("test/mean_img",
-                                               batch_results['mean'], self.ckpt.last_epoch)
+                                               torch.clamp(batch_results['mean'], 0., 1.),
+                                               self.ckpt.last_epoch)
                 if not self.uncertainty == 'normal':
-                    var = batch_results['var']
-                    if self.uncertainty == 'aleatoric':
-                        var = torch.exp(var)
                     self.summary_writer.add_images("test/var_img",
-                                                   var, self.ckpt.last_epoch)
+                                                   batch_results['var'],
+                                                   self.ckpt.last_epoch)
 
     def load(self, ckpt):
         ckpt.load() # load ckpt
@@ -125,7 +120,6 @@ class Operator:
         self.optimizer.load(ckpt) # load optimizer
 
     def save(self, ckpt, epoch):
-        self.optimizer.schedule()
         ckpt.save(epoch) # save ckpt: global_step, last_epoch
         self.model.save(ckpt, epoch) # save model: weight
         self.optimizer.save(ckpt) # save optimizer:

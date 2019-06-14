@@ -21,16 +21,18 @@ class Checkpoint:
         now = datetime.now().strftime('%m%d_%H%M')
 
         if config.exp_load is None:
-            dir_fmt = '{}_{}'.format(exp_type, now, config)
+            dir_fmt = '{}/{}_{}'.format(config.data_name, exp_type, now)
         else:
-            dir_fmt = '{}_{}'.format(exp_type, self.exp_load, config)
+            dir_fmt = '{}/{}_{}'.format(config.data_name, exp_type, self.exp_load)
 
         self.model_dir = os.path.join(self.exp_dir, dir_fmt, 'model')
         self.log_dir = os.path.join(self.exp_dir, dir_fmt, 'log')
+        self.save_dir = os.path.join(self.exp_dir, dir_fmt, 'save')
         self.ckpt_dir = os.path.join(self.log_dir, 'ckpt.pt')
 
         os.makedirs(self.model_dir, exist_ok=True)
         os.makedirs(self.log_dir, exist_ok=True)
+        os.makedirs(self.save_dir, exist_ok=True)
 
         # save config
         self.config_file = os.path.join(self.log_dir, 'config.txt')
