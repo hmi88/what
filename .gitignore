@@ -1,0 +1,11 @@
+.DS_Store
+.gitignore
+.idea
+
+WHAT_exp
+WHAT_ppt
+WHAT_ref
+WHAT_plan
+
+*.pyc
+*.xml
