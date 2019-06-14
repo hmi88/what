@@ -1,11 +1,10 @@
 .DS_Store
-.gitignore
 .idea
 
 WHAT_exp
 WHAT_ppt
 WHAT_ref
-WHAT_plan
+WHAT_plan.md
 
 *.pyc
 *.xml
