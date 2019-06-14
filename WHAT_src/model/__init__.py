@@ -26,6 +26,8 @@ class Model(nn.Module):
                 return self.model.forward(input)
         else:
             forward_func = self.model.forward
+            if self.uncertainty == 'normal':
+                return forward_func(input)
             if self.uncertainty == 'aleatoric':
                 return self.test_aleatoric(input, forward_func)
             elif self.uncertainty == 'epistemic':
@@ -34,41 +36,51 @@ class Model(nn.Module):
                 return self.test_combined(input, forward_func)
 
     def test_aleatoric(self, input, forward_func):
-        mean, var = forward_func(input)
-        var = torch.exp(var)
-        var_norm = var / var.max()
-        results = {'mean': mean, 'var': var_norm}
+        results = forward_func(input)
+        mean1 = results['mean']
+        var1 = torch.exp(results['var'])
+        var1_norm = var1 / var1.max()
+        results = {'mean': mean1, 'var': var1_norm}
         return results
 
     def test_epistemic(self, input, forward_func):
-        mean1 = []
-        mean2 = []
+        mean1s = []
+        mean2s = []
+
         for i_sample in range(self.n_samples):
-            y = forward_func(input)['mean']
-            mean1.append(y)
-            mean2.append(y ** 2)
-        mean1 = torch.stack(mean1, dim=0).mean(dim=0)
-        mean2 = torch.stack((mean2), dim=0).mean(dim=0)
-        var = mean1**2 - mean2
-        results = {'mean': mean1, 'var': var}
+            results = forward_func(input)
+            mean1 = results['mean']
+            mean1s.append(mean1 ** 2)
+            mean2s.append(mean1)
+
+        mean1s_ = torch.stack(mean1s, dim=0).mean(dim=0)
+        mean2s_ = torch.stack(mean2s, dim=0).mean(dim=0)
+
+        var1 = mean1s_ - mean2s_ ** 2
+        var1_norm = var1 / var1.max()
+        results = {'mean': mean2s_, 'var': var1_norm}
         return results
 
     def test_combined(self, input, forward_func):
-        mean1 = []
-        mean2 = []
-        var1 = []
+        mean1s = []
+        mean2s = []
+        var1s = []
         for i_sample in range(self.n_samples):
-            y = forward_func(input)['mean']
-            v = forward_func(input)['var']
-            mean1.append(y ** 2)
-            mean2.append(y)
-            var1.append(torch.exp(v))
+            results = forward_func(input)
+            mean1 = results['mean']
+            var1 = results['var']
+            mean1s.append(mean1 ** 2)
+            mean2s.append(mean1)
+            var1s.append(torch.exp(var1))
 
-        mean1_ = torch.stack(mean1, dim=0).mean(dim=0)
-        mean2_ = torch.stack(mean2, dim=0).mean(dim=0)
-        var1_ = torch.stack(var1, dim=0).mean(dim=0)
-        var = mean1_ - mean2_**2 + var1_
-        results = {'mean': mean1, 'var': var}
+        mean1s_ = torch.stack(mean1s, dim=0).mean(dim=0)
+        mean2s_ = torch.stack(mean2s, dim=0).mean(dim=0)
+        var1s_ = torch.stack(var1s, dim=0).mean(dim=0)
+
+        var2 = mean1s_ - mean2s_**2
+        var_ = var1s_ + var2
+        var_norm = var_ / var_.max()
+        results = {'mean': mean2s_, 'var': var_norm}
         return results
 
     def save(self, ckpt, epoch):
