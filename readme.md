@@ -61,6 +61,8 @@ python train.py --is_train false --uncertainty "combined" --n_samples 25 [or 5, 
 
 ### 1.3 Requirements
 
+- Python3.7
+
 - Pytorch >= 1.0
 - Torchvision
 - distutils
@@ -68,6 +70,10 @@ python train.py --is_train false --uncertainty "combined" --n_samples 25 [or 5, 
 
 
 ## 2. Experiment
+
+This is not official implementation.
+
+
 
 ### 2.1 Network & Datset
 
@@ -84,12 +90,23 @@ python train.py --is_train false --uncertainty "combined" --n_samples 25 [or 5, 
 
 ### 2.2 Results
 
-This is not official implementation
+#### 2.2.1 PSNR
 
-#### 2.2.1 Loss
+Combined > Aleatoric > Normal (w/o D.O) > Epistemic > Normal  (w/ D.O)
 
-#### 2.2.2 PSNR
+<img src="./WHAT_asset/psnr.png" alt="drawing" width="400"/>
 
-Combined > Aleatoric > Normal-drop0.0 > Epistemic > Normal-drop0.2
 
-#### 2.2.3 Images
+
+#### 2.2.2 Images
+
+<img src="./WHAT_asset/label.png" alt="drawing" width="400"/>  Input / Label
+
+<img src="./WHAT_asset/com.png" alt="drawing" width="400"/> Combined
+
+<img src="./WHAT_asset/al.png" alt="drawing" width="400"/> Aleatoric
+
+<img src="./WHAT_asset/ep.png" alt="drawing" width="400"/>Epistemic
+
+
+
